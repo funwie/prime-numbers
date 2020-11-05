@@ -30,13 +30,18 @@ namespace PrimeNumbers
             if (number == 2)
             {
                 Console.WriteLine(2);
+                return;
             }
 
             if (number == 3)
             {
                 Console.WriteLine(2);
                 Console.WriteLine(3);
+                return;
             }
+
+            Console.WriteLine(2);
+            Console.WriteLine(3);
 
             for (long i = 4; i <= number; i++)
             {
@@ -49,16 +54,15 @@ namespace PrimeNumbers
 
         private static bool IsPrime(long number)
         {
-            var leastDivisible = (int)Math.Sqrt(number) - 1;
+            var leastDivisible = (int)Math.Sqrt(number);
 
-            for (long i = 2; i < number; i++)
+            for (long i = 2; i < leastDivisible; i++)
             {
                 if (number % i == 0)
                 {
                     return false;
                 }
             }
-
             return true;
         }
     }
